@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>বাস সময়সূচি</title>
+  <link rel="stylesheet" href="www.a.css" />
+</head>
+<body>
+
+<!-- Header/Navbar -->
+<header>
+  <div class="logo">📍 বাস সময়সূচি</div>
+  <nav class="navbar">
+    <a href="#">হোম</a>
+    <a href="#">বাস তালিকা</a>
+    <a href="#">যোগাযোগ</a>
+  </nav>
+</header>
+
+<!-- Main Heading -->
+<h1 class="main-heading">সিরাজগঞ্জ টু ইসলামী বিশ্ববিদ্যালয়,কুষ্টিয়া - বাস সময়সূচি</h1>
+
+<!-- Ad/Message Box -->
+<!-- <div class="ad-box" id="adBox">
+  📢
+  <span onclick="closeAd()">✖</span>
+</div> -->
+
+<!-- Table -->
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>বাসের নাম</th>
+        <th>নম্বর</th>
+        <th>সিরাজগঞ্জ থেকে ছাড়ার সময়</th>
+        <th>ক্যাম্পাস গেটে সময়</th>
+        <th>ভাড়া</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rajshahi Express</td>
+        <td class="clickable" onclick="copyToClipboard('SG-1025')">+88010101010101</td>
+        <td>সকাল ৭:০০</td>
+        <td>সকাল ৯:১৫</td>
+        <td>২০০ টাকা</td>
+      </tr>
+      <tr>
+        <td>Green Line</td>
+        <td class="clickable" onclick="copyToClipboard('GL-2040')">010101010101</td>
+        <td>সকাল ৮:০০</td>
+        <td>সকাল ১০:৩০</td>
+        <td>২৫০ টাকা</td>
+      </tr>
+      <tr>
+        <td>Campus Rider</td>
+        <td class="clickable" onclick="copyToClipboard('CR-1122')">010101010101</td>
+        <td>সকাল ৬:৩০</td>
+        <td>সকাল ৯:০০</td>
+        <td>২২০ টাকা</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="toast">নম্বর কপি হয়েছে ✅</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2025 বাস সময়সূচি | সমস্ত অধিকার সংরক্ষিত</p>
+  <div class="social-icons">
+    <a href="" target="_blank">🔵 Facebook</a>
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+  function copyToClipboard(number) {
+    navigator.clipboard.writeText(number).then(() => {
+      const toast = document.getElementById("toast");
+      toast.innerText = `${number} নম্বর কপি হয়েছে ✅`;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2000);
+    });
+  }
+
+  function closeAd() {
+    const ad = document.getElementById("adBox");
+    ad.style.display = "none";
+  }
+</script>
+
+</body>
+</html>
