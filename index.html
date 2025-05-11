@@ -4,7 +4,158 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>বাস সময়সূচি</title>
-  <link rel="stylesheet" href="www.a.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Header/Navbar */
+    header {
+      background-color: #2c3e50;
+      padding: 15px 30px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+
+    /* Heading */
+    .main-heading {
+      text-align: center;
+      margin: 20px 0 10px;
+      font-size: 24px;
+      color: #2c3e50;
+    }
+
+    /* Ad/Message Box */
+    .ad-box {
+      background-color: #f39c12;
+      color: white;
+      text-align: center;
+      padding: 12px;
+      margin: 10px auto;
+      max-width: 900px;
+      border-radius: 8px;
+      position: relative;
+      font-weight: bold;
+    }
+
+    .ad-box span {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* Table */
+    .table-container {
+      overflow-x: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 600px;
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #2c3e50;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .clickable {
+      cursor: pointer;
+      color: #2980b9;
+      text-decoration: underline;
+    }
+
+    /* Toast */
+    .toast {
+      visibility: hidden;
+      min-width: 200px;
+      background-color: #27ae60;
+      color: white;
+      text-align: center;
+      border-radius: 8px;
+      padding: 10px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      bottom: 30px;
+      font-size: 16px;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.5s ease, bottom 0.5s ease;
+    }
+
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+      bottom: 50px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 30px;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #3498db;
+    }
+
+    @media (max-width: 600px) {
+      th, td {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      .navbar {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -34,32 +185,36 @@
       <tr>
         <th>বাসের নাম</th>
         <th>নম্বর</th>
-        <th>সিরাজগঞ্জ থেকে ছাড়ার সময়</th>
+        <th>ছাড়ার সময়</th>
         <th>ক্যাম্পাস গেটে সময়</th>
+        <th>রুট</th>
         <th>ভাড়া</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Rajshahi Express</td>
-        <td class="clickable" onclick="copyToClipboard('SG-1025')">+88010101010101</td>
+        <td>Royal Dutch</td>
+        <td class="clickable" onclick="copyToClipboard('বাসের ')">01795425453</td>
+        <td>সকাল ৬:০০</td>
+        <td>বিকেল ৪:৪০</td>
+        <td>সিরাজগঞ্জ,<br>বনপাড়া,<br>ক্যাম্পাস,<br>বেনাপোল</td>
+        <td>৳৪০০ +-</td>
+      </tr>
+      <tr>
+        <td>Royal Dutch</td>
+        <td class="clickable" onclick="copyToClipboard('বাসের ')">01734223121</td>
         <td>সকাল ৭:০০</td>
-        <td>সকাল ৯:১৫</td>
-        <td>২০০ টাকা</td>
+        <td>বিকেল ৫:৩০</td>
+        <td>সিরাজগঞ্জ,<br>পাবনা,<br>ক্যাম্পাস</td>
+        <td>৳৪০০ +-</td>
       </tr>
       <tr>
-        <td>Green Line</td>
-        <td class="clickable" onclick="copyToClipboard('GL-2040')">010101010101</td>
+        <td>Royal Dutch</td>
+        <td class="clickable" onclick="copyToClipboard('বাসের ')">01779147274</td>
         <td>সকাল ৮:০০</td>
-        <td>সকাল ১০:৩০</td>
-        <td>২৫০ টাকা</td>
-      </tr>
-      <tr>
-        <td>Campus Rider</td>
-        <td class="clickable" onclick="copyToClipboard('CR-1122')">010101010101</td>
-        <td>সকাল ৬:৩০</td>
-        <td>সকাল ৯:০০</td>
-        <td>২২০ টাকা</td>
+        <td>কুষ্টিয়া থেকে  <br>  দুপুর ১:৪০</td>
+        <td>সিরাজগঞ্জ,<br>পাবনা,<br>কুষ্টিয়া</td>
+        <td>৳৪০০ +-</td>
       </tr>
     </tbody>
   </table>
